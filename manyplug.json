@@ -1,6 +1,11 @@
 {
     "name": "adivinhacao",
-    "author": "SyntaxError <me@stxerr.dev> (https://www.stxerr.dev)",
+    "key": "synt-xerror/adivinhacao",
+    "author": {
+      "name": "synt-xerror",
+      "email": "me@stxerr.dev",
+      "website": "https://www.stxerr.dev"
+    },
     "description": "Number guessing game for Manybot.", 
     "version": "2.0.0",
     "category": "games",
