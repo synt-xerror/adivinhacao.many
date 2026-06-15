@@ -6,6 +6,7 @@
       "email": "me@stxerr.dev",
       "website": "https://www.stxerr.dev"
     },
+    "license": "MIT",
     "description": "Number guessing game for Manybot.", 
     "version": "2.0.0",
     "category": "games",
