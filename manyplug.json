@@ -7,8 +7,9 @@
       "website": "https://www.stxerr.dev"
     },
     "license": "MIT",
+    "repo": "https://github.com/synt-xerror/adivinhacao.many",
     "description": "Number guessing game for Manybot.", 
-    "version": "2.0.0",
+    "version": "3.0.0",
     "category": "games",
     "service": false,
     "dependencies": {}

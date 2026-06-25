@@ -17,8 +17,8 @@ export default async function (ctx) {
   const { t }    = ctx.i18n.createT(import.meta.url);
 
   // ── !adivinhação ─────────────────────────────────────────
-  if (msg.is(prefix + "adivinhação")) {
-    const sub = msg.args[1];
+  if (msg.is("adivinhação")) {
+    const sub = msg.args[0];
 
     if (!sub) {
       await ctx.send(
@@ -31,19 +31,19 @@ export default async function (ctx) {
 
     if (sub === "começar") {
       jogosAtivos.set(chatId, sorteio());
-      await ctx.send(t("started"));
+      await ctx.send.text(t("started"));
       ctx.log.info(t("gameLog.started"));
       return;
     }
 
     if (sub === "parar") {
       jogosAtivos.delete(chatId);
-      await ctx.send(t("stopped"));
+      await ctx.send.text(t("stopped"));
       ctx.log.info(t("gameLog.stopped"));
       return;
     }
 
-    await ctx.send(
+    await ctx.send.text(
       `${t("invalidCommand", { sub })} \`${prefix}adivinhação começar\` ${t("or")} \`${prefix}adivinhação parar\`.`
     );
     return;
@@ -58,16 +58,16 @@ export default async function (ctx) {
 
   const num = parseInt(tentativa, 10);
   if (num < RANGE.min || num > RANGE.max) {
-    await msg.reply(t("range", { min: RANGE.min, max: RANGE.max }));
+    await msg.reply.text(t("range", { min: RANGE.min, max: RANGE.max }));
     return;
   }
 
   if (num === numero) {
-    await msg.reply(
+    await msg.reply.text(
       `${t("correct", { number: numero })} \`${prefix}adivinhação começar\` ${t("playAgain")}`
     );
     jogosAtivos.delete(chatId);
   } else {
-    await ctx.send(num > numero ? t("lower") : t("higher"));
+    await ctx.send.text(num > numero ? t("lower") : t("higher"));
   }
 }
